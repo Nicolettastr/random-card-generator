@@ -15,38 +15,43 @@ window.onload = function() {
 
   const button = document.querySelector(".randomButton");
 
-  const numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, "A", "J", "Q", "K"];
-  const pips = ["♦", "♥", "♠", "♣"];
+  let numbers = [2, 3, 4, 5, 6, 7, 8, 9, 10, "A", "J", "Q", "K"];
+
+  let pips = ["♦", "♥", "♠", "♣"];
 
   const changeCard = () => {
-    const position = Math.floor(Math.random() * 4);
+    let position = Math.floor(Math.random() * 4);
 
-    const randomNumber = Math.floor(Math.random() * 13);
+    let randomNumber = Math.floor(Math.random() * 13);
 
-    console.log(0, pips[0]);
-    console.log(1, pips[1]);
-    console.log(2, pips[2]);
-    console.log(3, pips[3]);
+    const palo = pips[position];
+    const num = numbers[randomNumber];
 
-    console.log(pips[position]);
-
-    if (pips[position] === "♦") {
-      upperPip.classList.add("color-red");
-      lowerPip.classList.add("color-red");
-    } else if (pips[position] === "♥") {
-      upperPip.classList.add("color-red");
-      lowerPip.classList.add("color-red");
-    } else if (pips[position] === "♠") {
-      upperPip.classList.add("color-black");
-      lowerPip.classList.add("color-black");
-    } else if (pips[position] === "♣") {
-      upperPip.classList.add("color-black");
-      lowerPip.classList.add("color-black");
+    if (palo === "♦") {
+      console.log("diamante");
+      upperPip.style.color = "red";
+      lowerPip.style.color = "red";
+      cardNumber.style.color = "red";
+    } else if (palo === "♥") {
+      console.log("corazon");
+      upperPip.style.color = "red";
+      lowerPip.style.color = "red";
+      cardNumber.style.color = "red";
+    } else if (palo === "♠") {
+      console.log("espiga");
+      upperPip.style.color = "black";
+      lowerPip.style.color = "black";
+      cardNumber.style.color = "black";
+    } else {
+      console.log("trebol");
+      upperPip.style.color = "black";
+      lowerPip.style.color = "black";
+      cardNumber.style.color = "black";
     }
 
-    upperPip.innerHTML = pips[position];
-    lowerPip.innerHTML = pips[position];
-    cardNumber.innerHTML = numbers[randomNumber];
+    upperPip.innerHTML = palo;
+    lowerPip.innerHTML = palo;
+    cardNumber.innerHTML = num;
   };
 
   button.addEventListener("click", changeCard);
@@ -75,25 +80,37 @@ window.onload = function() {
   /*Card timer*/
 
   setInterval(() => {
-    const position = Math.floor(Math.random() * 4);
-    const randomNumber = Math.floor(Math.random() * 13);
+    let position = Math.floor(Math.random() * 4);
 
-    if (pips[position] === "♦") {
-      upperPip.classList.add("color-red");
-      lowerPip.classList.add("color-red");
-    } else if (pips[position] === "♥") {
-      upperPip.classList.add("color-red");
-      lowerPip.classList.add("color-red");
-    } else if (pips[position] === "♠") {
-      upperPip.classList.add("color-black");
-      lowerPip.classList.add("color-black");
-    } else if (pips[position] === "♣") {
-      upperPip.classList.add("color-black");
-      lowerPip.classList.add("color-black");
+    let randomNumber = Math.floor(Math.random() * 13);
+
+    const palo = pips[position];
+    const num = numbers[randomNumber];
+
+    if (palo === "♦") {
+      console.log("diamante");
+      upperPip.style.color = "red";
+      lowerPip.style.color = "red";
+      cardNumber.style.color = "red";
+    } else if (palo === "♥") {
+      console.log("corazon");
+      upperPip.style.color = "red";
+      lowerPip.style.color = "red";
+      cardNumber.style.color = "red";
+    } else if (palo === "♠") {
+      console.log("espiga");
+      upperPip.style.color = "black";
+      lowerPip.style.color = "black";
+      cardNumber.style.color = "black";
+    } else {
+      console.log("trebol");
+      upperPip.style.color = "black";
+      lowerPip.style.color = "black";
+      cardNumber.style.color = "black";
     }
 
-    upperPip.innerHTML = pips[position];
-    lowerPip.innerHTML = pips[position];
-    cardNumber.innerHTML = numbers[randomNumber];
-  }, 10000);
+    upperPip.innerHTML = palo;
+    lowerPip.innerHTML = palo;
+    cardNumber.innerHTML = num;
+  }, 8000);
 };
